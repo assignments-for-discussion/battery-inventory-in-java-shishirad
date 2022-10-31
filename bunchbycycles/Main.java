@@ -5,10 +5,23 @@ public class Main {
     public int lowCount = 0;
     public int mediumCount = 0;
     public int highCount = 0;
+    
   };
 
   static CountsByUsage countBatteriesByUsage(int[] cycles) {
     CountsByUsage counts = new CountsByUsage();
+     for(int i=0;i<cycles.length;i++){
+        if(cycles[i]<410){
+            counts.lowCount=counts.lowCount+1;
+        }
+        else if(cycles[i]>410 && cycles[i]<950){
+            counts.mediumCount=counts.mediumCount+1;
+        }
+        else if(cycles[i]>949){
+            counts.highCount=counts.highCount+1;
+
+        }
+    }
     return counts;
   }
 
@@ -19,6 +32,10 @@ public class Main {
     assert(counts.mediumCount == 3);
     assert(counts.highCount == 1);
     System.out.println("Done counting :)\n");
+    System.out.println("Done counting \n");
+    System.out.println("LOW = "+counts.lowCount);
+    System.out.println("MEDIUM = "+counts.mediumCount);
+    System.out.println("HIGH = "+counts.highCount);
   }
 
   public static void main(String[] args) {
